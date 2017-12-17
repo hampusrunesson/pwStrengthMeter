@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/pwlayout">
+
+    <EditText
+        android:id="@+id/pwinput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="70dp"
+        android:hint="Skriv in ditt lösenord"
+        android:inputType="textPassword"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Lösenordskvalité:"
+        />
+
+    <RatingBar
+        android:id="@+id/pwProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:numStars="7"
+        android:stepSize="1"
+        android:layout_gravity="center_horizontal"
+        android:isIndicator="true"
+        />
+
+    <TextView
+        android:id="@+id/ratingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ff0000"
+        android:text="Inget lösenord inskrivet..."
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+
+
+
+</LinearLayout>
