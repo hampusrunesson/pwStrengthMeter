@@ -17,13 +17,14 @@ public class PwCalculator implements pwInterface {
 
     private int passwordRequirementLength;
     private int minPwLength;
-    private pwInterface pw;
 
     //an arraylist that contains the words that a password is not allowed to contain
     private ArrayList<String> wordComparator = new ArrayList<>();
 
     private int color;
     private String comment;
+    private PwListener listener;
+    public static final int STRONG_PW = 7;
 
     /**
      * The contructor of the calculator
@@ -34,6 +35,15 @@ public class PwCalculator implements pwInterface {
         this.passwordRequirementLength = passwordRequirementLength;
         this.minPwLength = minPwLength;
         setWordComparator();
+    }
+
+    /**
+     * Setting the password listener
+     * @param listener is the password listener
+     */
+    public void setPwStrength(PwListener listener)
+    {
+        this.listener = listener;
     }
 
 
@@ -97,37 +107,37 @@ public class PwCalculator implements pwInterface {
         if(score <= 7) {
             switch (score) {
                 case 1:
-                    rating = 1;
+                    listener.onPwStateChange(rating = 1);
                     setColor(Color.RED);
-                    setComment("Svagt lösenord...");
+                    setComment("Mycket svagt lösenord...");
                     break;
                 case 2:
-                    rating = 2;
+                    listener.onPwStateChange(rating = 2);
                     setColor(Color.RED);
                     setComment("Svagt lösenord...");
                     break;
                 case 3:
-                    rating = 3;
+                    listener.onPwStateChange(rating = 3);
                     setColor(Color.YELLOW);
                     setComment("Okej lösenord...");
                     break;
                 case 4:
-                    rating = 4;
+                    listener.onPwStateChange(rating = 4);
                     setColor(Color.BLUE);
                     setComment("Helt okej lösenord...");
                     break;
                 case 5:
-                    rating = 5;
+                    listener.onPwStateChange(rating = 5);
                     setColor(Color.BLUE);
                     setComment("Ganska bra lösenord...");
                     break;
                 case 6:
-                    rating = 6;
+                    listener.onPwStateChange(rating = 6);
                     setColor(Color.GREEN);
                     setComment("Bra lösenord!");
                     break;
                 case 7:
-                    rating = 7;
+                    listener.onPwStateChange(rating = 7);
                     setColor(Color.GREEN);
                     setComment("Utmärkt lösenord!");
                     break;

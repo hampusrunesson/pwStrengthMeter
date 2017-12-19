@@ -33,12 +33,14 @@ public class pwStrength extends LinearLayout {
     private RatingBar ratingBar;
 
     //the calculator that is used for calculation
-    private PwCalculator pwCalc;
+    public PwCalculator pwCalc;
 
     //the textView that describes the password quality (in words and colors)
     private TextView ratingTitle;
 
     Context context;
+
+
 
 
     /**
@@ -49,17 +51,17 @@ public class pwStrength extends LinearLayout {
     public pwStrength(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        init();
+    }
 
-
+    public void init()
+    {
         pwCalc = new PwCalculator(8, 4);
         LinearLayout layout = (LinearLayout) inflate(context, R.layout.pwlayout, null);
         setOrientation(VERTICAL);
-
         ratingBar = layout.findViewById(R.id.pwProgress);
         ratingTitle = layout.findViewById(R.id.ratingText);
-
         passWordText = layout.findViewById(R.id.pwinput);
-
         addView(layout);
 
         passWordText.addTextChangedListener(new TextWatcher() {

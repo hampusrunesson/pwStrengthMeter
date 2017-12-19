@@ -19,7 +19,7 @@ public class Tester extends PwCalculator {
 
         if(pw.contains("..."))
         {
-            score = 7;
+            score = 2;
         }
 
         return super.score(pw) + score;
